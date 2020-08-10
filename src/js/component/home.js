@@ -1,24 +1,47 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faClock } from "@fortawesome/free-solid-svg-icons";
+import PropType from "prop-types";
 
-//include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
+var seconds = 0;
+var minutes = 0;
+var hours = 0;
 
-//create your first component
-export function Home() {
+export function Home(props) {
+	document.body.style = "background: black;"; //Cambia el color de fondo a negro
 	return (
-		<div className="text-center mt-5">
-			<h1>Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
+		<div>
+			<div style={{ fontSize: "6em" }}>
+				<span
+					class="badge badge-secondary"
+					style={{ marginLeft: "20px" }}>
+					<FontAwesomeIcon icon={faClock} />
+				</span>
+
+				<span
+					class="badge badge-secondary"
+					style={{ marginLeft: "20px" }}>
+					{props.hours}
+				</span>
+
+				<span
+					class="badge badge-secondary"
+					style={{ marginLeft: "20px" }}>
+					{props.minutes}
+				</span>
+
+				<span
+					class="badge badge-secondary"
+					style={{ marginLeft: "20px" }}>
+					{seconds}
+				</span>
+			</div>
 		</div>
 	);
 }
+
+/*Home.proptypes = {
+	seconds: PropType.int,
+	minutes: PropType.int,
+	hours: PropType.int
+};*/
